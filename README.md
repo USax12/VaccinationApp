@@ -8,7 +8,7 @@ Java Development Kit (JDK) 11 or higher
 Maven
 IDE (e.g., IntelliJ IDEA, Eclipse)
 
-Getting Started:
+Getting Started:  
 1- Clone the Repository: git clone https://github.com/USax12/VaccinationApp.git
 2- Build the Project: mvn clean install
 3- Run the Application: mvn spring-boot:run
