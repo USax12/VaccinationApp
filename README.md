@@ -9,7 +9,7 @@ Maven
 IDE (e.g., IntelliJ IDEA, Eclipse)
 
 Getting Started:  
-1- Clone the Repository: git clone https://github.com/USax12/VaccinationApp.git
+1- Clone the Repository: git clone https://github.com/USax12/VaccinationApp.git \
 2- Build the Project: mvn clean install
 3- Run the Application: mvn spring-boot:run
 4- Explore APIs: Access the Swagger API documentation for a list of available APIs and their documentation at **http://localhost:8080/swagger-ui.html**
