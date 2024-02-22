@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 
+import com.example.vaccNow.exception.CustomException.InvalidEmailException;
+import com.example.vaccNow.exception.CustomException.PaymentNotMadeException;
+import com.example.vaccNow.exception.CustomException.ScheduleAlreadyConfirmedException;
+
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -89,4 +93,25 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
 	}
 
+	@ExceptionHandler(InvalidEmailException.class)
+	public ResponseEntity<ErrorResponse> handleInvalidEmailException(InvalidEmailException ex, WebRequest request) {
+		ErrorResponse errorResponse = new ErrorResponse(HttpStatus.BAD_REQUEST.value(),
+				HttpStatus.BAD_REQUEST.getReasonPhrase(), ex.getMessage(), request.getDescription(false));
+		return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+	}
+
+	@ExceptionHandler(ScheduleAlreadyConfirmedException.class)
+	public ResponseEntity<ErrorResponse> handleScheduleAlreadyConfirmedException(ScheduleAlreadyConfirmedException ex,
+			WebRequest request) {
+		ErrorResponse errorResponse = new ErrorResponse(HttpStatus.BAD_REQUEST.value(),
+				HttpStatus.BAD_REQUEST.getReasonPhrase(), ex.getMessage(), request.getDescription(false));
+		return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+	}
+
+	@ExceptionHandler(PaymentNotMadeException.class)
+	public ResponseEntity<ErrorResponse> handlePaymentNotMadeException(PaymentNotMadeException ex, WebRequest request) {
+		ErrorResponse errorResponse = new ErrorResponse(HttpStatus.BAD_REQUEST.value(),
+				HttpStatus.BAD_REQUEST.getReasonPhrase(), ex.getMessage(), request.getDescription(false));
+		return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+	}
 }
