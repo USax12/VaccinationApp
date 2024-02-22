@@ -13,7 +13,7 @@ Getting Started:
 2- Build the Project: mvn clean install \
 3- Run the Application: mvn spring-boot:run \
 4- Explore APIs: Access the Swagger API documentation for a list of available APIs and their documentation at **http://localhost:8080/swagger-ui.html** &nbsp;
-   Alternatively **POSTMAN** can be used for better representation and output. 
+   Alternatively **POSTMAN** can be used for better representation and output. \
 5- Testing:Unit tests are available in the src/test directory. Run tests using the following command: mvn test
 
 ## Tech Stack
