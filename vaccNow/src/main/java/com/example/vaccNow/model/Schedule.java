@@ -30,6 +30,12 @@ public class Schedule {
 	@Column(name = "PAYMENT_METHOD")
 	private String paymentMethod;
 
+	@Column(name = "user_email")
+	private String userEmail;
+	
+	@Column(name = "confirmed")
+	private boolean confirmed;
+
 	public Schedule() {
 		super();
 	}
@@ -91,6 +97,22 @@ public class Schedule {
 
 	public void setPaymentMethod(String paymentMethod) {
 		this.paymentMethod = paymentMethod;
+	}
+
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+
+	public boolean isConfirmed() {
+		return confirmed;
+	}
+
+	public void setConfirmed(boolean confirmed) {
+		this.confirmed = confirmed;
 	}
 
 }

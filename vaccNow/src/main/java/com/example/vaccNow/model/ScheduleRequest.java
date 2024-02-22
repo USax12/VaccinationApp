@@ -5,6 +5,7 @@ public class ScheduleRequest {
 	private Long branchId;
 	private String selectedDate;
 	private String selectedTime;
+	private String emailId;
 
 	public Long getBranchId() {
 		return branchId;
@@ -28,6 +29,14 @@ public class ScheduleRequest {
 
 	public void setSelectedTime(String selectedTime) {
 		this.selectedTime = selectedTime;
+	}
+
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
 
 }

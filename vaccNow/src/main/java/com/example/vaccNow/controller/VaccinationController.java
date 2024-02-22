@@ -25,7 +25,7 @@ public class VaccinationController {
 	@PostMapping("/schedule")
 	public ResponseEntity<String> scheduleVaccination(@RequestBody ScheduleRequest scheduleRequest) {
 		ScheduleResponse scheduledDateTime = vaccinationService.scheduleVaccination(scheduleRequest.getBranchId(),
-				scheduleRequest.getSelectedDate(), scheduleRequest.getSelectedTime());
+				scheduleRequest.getSelectedDate(), scheduleRequest.getSelectedTime(), scheduleRequest.getEmailId());
 
 		return ResponseEntity.ok("Vaccination scheduled successfully at: " + scheduledDateTime.getSelectedDateTime()
 				+ " with ScheduleId " + scheduledDateTime.getScheduleId());
@@ -35,6 +35,13 @@ public class VaccinationController {
 	public ResponseEntity<String> choosePaymentMethod(@RequestParam Long scheduleId,
 			@RequestParam String paymentMethod) {
 		String result = vaccinationService.choosePaymentMethod(scheduleId, paymentMethod);
+		return new ResponseEntity<>(result, HttpStatus.OK);
+	}
+
+	@PostMapping("/confirm-schedule")
+	public ResponseEntity<String> confirmScheduledVaccinationByEmail(@RequestParam Long scheduleId,
+			@RequestParam String userEmail) {
+		String result = vaccinationService.confirmScheduledVaccinationByEmail(scheduleId, userEmail);
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 

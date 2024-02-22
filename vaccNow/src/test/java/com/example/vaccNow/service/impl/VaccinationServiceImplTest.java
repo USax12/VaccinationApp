@@ -47,6 +47,7 @@ class VaccinationServiceImplTest {
 		Long branchId = 1L;
 		String selectedDate = "2022-12-01";
 		String selectedTime = "10:00:00";
+		String userEmail = "test@example.com";
 		Branch branch = new Branch();
 		branch.setId(branchId);
 		when(branchRepository.findById(branchId)).thenReturn(Optional.of(branch));
@@ -54,11 +55,11 @@ class VaccinationServiceImplTest {
 		when(scheduleRepository.save(any())).thenReturn(new Schedule());
 
 		// Call the method to be tested
-		ScheduleResponse response = vaccinationService.scheduleVaccination(branchId, selectedDate, selectedTime);
+		ScheduleResponse response = vaccinationService.scheduleVaccination(branchId, selectedDate, selectedTime,
+				userEmail);
 
 		// Assertions
 		assertNotNull(response);
-
 	}
 
 	@Test
@@ -68,6 +69,7 @@ class VaccinationServiceImplTest {
 		Long branchId = 1L;
 		String selectedDate = "2022-12-01";
 		String selectedTime = "10:00:00";
+		String userEmail = "test@example.com";
 		LocalDateTime selectedDateTime = LocalDateTime.parse(selectedDate + "T" + selectedTime);
 		Branch branch = new Branch();
 		branch.setId(branchId);
@@ -76,7 +78,7 @@ class VaccinationServiceImplTest {
 
 		// Call the method to be tested
 		try {
-			vaccinationService.scheduleVaccination(branchId, selectedDate, selectedTime);
+			vaccinationService.scheduleVaccination(branchId, selectedDate, selectedTime, userEmail);
 			// If no exception is thrown, the test should fail
 			fail("Expected TimeslotNotAvailableException, but no exception was thrown");
 		} catch (TimeslotNotAvailableException e) {

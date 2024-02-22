@@ -85,4 +85,29 @@ public class CustomException {
 			super(message);
 		}
 	}
+
+	public static class InvalidEmailException extends RuntimeException {
+		private static final long serialVersionUID = 1L;
+
+		public InvalidEmailException(String message) {
+			super(message);
+		}
+	}
+
+	public static class ScheduleAlreadyConfirmedException extends RuntimeException {
+		private static final long serialVersionUID = 1L;
+
+		public ScheduleAlreadyConfirmedException(String message) {
+			super(message);
+		}
+	}
+
+	public static class PaymentNotMadeException extends RuntimeException {
+
+		private static final long serialVersionUID = 1L;
+
+		public PaymentNotMadeException(String message) {
+			super(message);
+		}
+	}
 }
